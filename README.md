@@ -1,0 +1,2 @@
+# MTG-Statistical-Calculator
+This is a statistical calculator for the card game "Magic the Gathering". This is still in it's early stages and currently written in Java. There will be more features added as well as a lot of cleaning up with the code (It is ugly, I'm still learning). I am hoping to add a lot more features to the program, so far it shows you the probability of each card type based off of how many of each type you have left in your deck.
