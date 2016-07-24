@@ -121,6 +121,22 @@ public class Calculations {
         return counter;
     }
     
+    public void removeCards(ArrayList<Card> deck, String lookingFor, int amountToRemove)
+    {
+        int counter = 0;
+        while(counter < amountToRemove)
+        {
+        for(int i = 0; i < deck.size(); i++)
+        {
+            if(deck.get(i).equals(lookingFor))
+            {
+                deck.remove(i);
+                counter++;
+            }
+        }
+        }
+    }
+    
     public int probabilityOfDraw(Deck deck, String lookingFor, ArrayList<Card> cards)
     {
         //probability of drawing a card type based off of what's specified.
@@ -131,13 +147,15 @@ public class Calculations {
     {
         //Probability of card types being in starting hand based on the amonut of each type and the deck size.
         
+        /*
         int amountLand = amountOfCards(cards, "Land");
         int amountCreature = amountOfCards(cards, "Creature");
         int amountSorcery = amountOfCards(cards, "Sorcery");
         int amountInstance = amountOfCards(cards, "Instance");
         int amountEnchantment = amountOfCards(cards, "Enchantment");
         int amountPlaneswalker = amountOfCards(cards, "Planeswalker");
-        
+        */        
+
         DecimalFormat df = new DecimalFormat("#.000");
         
         
@@ -189,13 +207,37 @@ public class Calculations {
         System.out.println("An Planeswalker:     " + df.format(geometCdfPlaneswalker) + "%");
     }
     
-    public void usedCard()
+    public void usedCard(ArrayList<Card> deck)
     {
         Scanner input = new Scanner (System.in);
         //DecimalFormat df = new DecimalFormat("#.000"); 
         
         System.out.println("How many cards did you play this turn?");
         int amountPlayed = input.nextInt();
+        
+        System.out.println("How many Land cards were played?");
+        int amountLandPlayed = input.nextInt();
+        removeCards(deck, "Land", amountLandPlayed);
+        
+        System.out.println("How many Instant cards were played?");
+        int amountInstantsPlayed = input.nextInt();
+        removeCards(deck, "Instant", amountInstantsPlayed);
+        
+        System.out.println("How many Creature cards were played?");
+        int amountCreaturePlayed = input.nextInt();
+        removeCards(deck, "Creature", amountCreaturePlayed);
+        
+        System.out.println("How many Sorcery cards were played?");
+        int amountSorceryPlayed = input.nextInt();
+        removeCards(deck, "Sorcery", amountSorceryPlayed);
+        
+        System.out.println("How many Enchantment cards were played?");
+        int amountEnchantmentPlayed = input.nextInt();
+        removeCards(deck, "Enchantment", amountEnchantmentPlayed);
+        
+        System.out.println("How many Planeswalker cards were played?");
+        int amountPlaneswalkerPlayed = input.nextInt();
+        removeCards(deck, "Planeswalker", amountPlaneswalkerPlayed);
     }
     
     
