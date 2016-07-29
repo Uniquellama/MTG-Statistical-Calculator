@@ -4,29 +4,18 @@
  * and open the template in the editor.
  */
 package card_calc_remade;
-import java.util.Scanner;
-
-import card_calc_remade.Deck;
-import card_calc_remade.Card;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author maxkrawiec
  */
 public class Calculations {
+
+    private Scanner input = new Scanner (System.in);
     
-    int amountLand;
-    int amountCreature;
-    int amountInstance;
-    int amountSorcery;
-    int amountArtifact;
-    int amountEnchantment;
-    int amountPlaneswalker;
-    
-    Scanner input = new Scanner (System.in);
-    
-    public void fillDeck(ArrayList<Card> deck)
+    public void fillDeck(ArrayList<Card> deck, int amountLand, int amountCreature, int amountInstance, int amountSorcery, int amountArtifact, int amountEnchantment, int amountPlaneswalker)
     {
         //Fills the deck based off what the players specified the amount of cards in the deck are.
         
@@ -98,14 +87,16 @@ public class Calculations {
         
     }
     
-    public int getPercOfOne(Deck deck)
+    private int getPercOfOne(Deck deck)
     {
         //Returns what proportion of the deck 1 card is. 
         return 1/deck.getSize();
     }
-    
-    
-    public int amountOfCards(ArrayList<Card> deck, String lookingFor)
+
+
+
+
+	private int amountOfCards(ArrayList<Card> deck, String lookingFor)
     {
         //Returns how many of a specific card type there is in a deck.
         
@@ -121,7 +112,7 @@ public class Calculations {
         return counter;
     }
     
-    public void removeCards(ArrayList<Card> deck, String lookingFor, int amountToRemove)
+    private void removeCards(ArrayList<Card> deck, String lookingFor, int amountToRemove)
     {
         int counter = 0;
         while(counter < amountToRemove)
@@ -137,7 +128,7 @@ public class Calculations {
         }
     }
     
-    public int probabilityOfDraw(Deck deck, String lookingFor, ArrayList<Card> cards)
+    private int probabilityOfDraw(Deck deck, String lookingFor, ArrayList<Card> cards)
     {
         //probability of drawing a card type based off of what's specified.
         return amountOfCards(cards, lookingFor)*getPercOfOne(deck);
@@ -210,10 +201,7 @@ public class Calculations {
     public void usedCard(ArrayList<Card> deck)
     {
         Scanner input = new Scanner (System.in);
-        //DecimalFormat df = new DecimalFormat("#.000"); 
-        
-        System.out.println("How many cards did you play this turn?");
-        int amountPlayed = input.nextInt();
+        //DecimalFormat df = new DecimalFormat("#.000");
         
         System.out.println("How many Land cards were played?");
         int amountLandPlayed = input.nextInt();
@@ -238,6 +226,7 @@ public class Calculations {
         System.out.println("How many Planeswalker cards were played?");
         int amountPlaneswalkerPlayed = input.nextInt();
         removeCards(deck, "Planeswalker", amountPlaneswalkerPlayed);
+
     }
     
     

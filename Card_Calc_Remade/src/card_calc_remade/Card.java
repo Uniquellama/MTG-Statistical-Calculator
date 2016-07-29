@@ -27,7 +27,10 @@ public class Card{
         type = cardType;
     }
     
-    
+    public String toString()
+    {
+    	return type;
+    }
     
     public String getType()
     {
