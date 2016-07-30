@@ -1,5 +1,6 @@
 package com.mypackage.max.mtg_calc_android;
 
+import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

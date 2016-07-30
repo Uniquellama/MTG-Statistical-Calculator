@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MTG_Calc_Android</string>
+    <string name="artifacts">Artifacts</string>
 </resources>
